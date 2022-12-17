@@ -21,8 +21,12 @@ public class Fibonacci {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        System.out.println("10 số đầu tiên trong dãy Fibonacci:");
-        for(int i=0; i<6; i++) {
+        int n;
+        System.out.println("Nhap n: ");
+        Scanner sc=new Scanner(System.in);
+        n=sc.nextInt();
+        System.out.println(n+ " số đầu tiên trong dãy Fibonacci:");
+        for(int i=0; i<n; i++) {
             System.out.print(String.valueOf(fibonacci(i))+"\t");
         }
     }

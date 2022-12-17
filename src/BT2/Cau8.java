@@ -12,7 +12,7 @@ public class Cau8 {
     }
 
     public static int DemChu(String text) {
-        String[] words = text.split("\\s");
+        String[] words = text.split("");
         return words.length;
     }
 

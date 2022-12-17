@@ -3,42 +3,47 @@ package BT2;
 import java.util.Scanner;
 
 public class HeCoSo {
-    public static final char CHAR_55 = 55;
 
-    private static String he_co_so(int n, int b) {
-        if (n < 0 || b < 2 || b > 16 ) {
-            return "";
-        }
 
-        StringBuilder sb = new StringBuilder();
-        int m;
-        int remaind = n;
-
-        while (remaind > 0) {
-            if (b > 10) {
-                m = remaind % b;
-                if (m >= 10) {
-                    sb.append((char) (CHAR_55 + m));
-                } else {
-                    sb.append(m);
-                }
-            } else {
-                sb.append(remaind % b);
-            }
-            remaind = remaind / b;
-        }
-        return sb.reverse().toString();
+    public static void doiCoSo(int n, int base) {
+        if (n >= base)
+            doiCoSo(n / base, base);
+        if (n % base > 9)
+            System.out.printf("%c", n % base + 55);
+        else
+            System.out.print((n % base));
     }
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
+
+    public static int nhap() {
+        Scanner input = new Scanner(System.in);
+        boolean check = false;
         int n = 0;
-        Scanner scn = new Scanner(System.in);
-        System.out.print("Nhập số: ");
-        n = scn.nextInt();
-        System.out.println("Số " + n + " trong hệ cơ số 2 = "
-                + he_co_so(n, 2));
-        System.out.println("Số " + n + " trong hệ cơ số 16 = "
-                + he_co_so(n, 16));
-
+        while (!check) {
+            System.out.print(" ");
+            try {
+                n = input.nextInt();
+                check = true;
+            } catch (Exception e) {
+                System.out.println("Ban phai nhap so! hay nhap lai...");
+                input.nextLine();
+            }
+        }
+        return (n);
     }
+
+    public static void main(String[] args) {
+        System.out.println("Nhap n");
+        int n = nhap();
+        System.out.println("Nhap vao co so can chuyen sang b");
+        int b = nhap();
+        System.out.println("So " + n + " chuyen sang co so " + b + " thanh: ");
+        doiCoSo(n, b);
+    }
+
 }
+
+
+
+
+
+

@@ -20,6 +20,7 @@ public class cau9 {
             System.out.print(key + " " + wordMap.get(key) + "\n");
         }
     }
+
     public static Map<String, Integer> countWords(String input) {
         // khởi tạo wordMap
         Map<String, Integer> wordMap = new TreeMap<String, Integer>();
